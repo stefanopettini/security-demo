@@ -60,7 +60,7 @@ namespace FC.SecurityDemo.SQLInjection.Example05.Controllers
             List<User> users;            
             var connection = db.GetConnection();
             string where = string.IsNullOrEmpty(filter) ? "" : $"WHERE Username LIKE '%{filter}%' COLLATE NOCASE";
-            string query = $"SELECT Id,Username,Email from Users"; // {where};";
+            string query = $"SELECT Id,Username,Email from Users {where};";
 
             using (var command = connection.CreateCommand())
             {
